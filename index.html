@@ -85,7 +85,12 @@
             <button class="btn btn-block btn-primary" @click="berechnen">Preis berechnen</button>
         </div>
         -->
+        <ul class="list-group m-2">
+            <li class="list-group-item" v-for="pokemon in pokemonList">{{ pokemon.name }} ({{ pokemon.gender }})
+            </li>
+        </ul>
 
+        <!--
         <ul class="list-group">
             <li class="list-group-item">name: {{name}}</li>
             <li class="list-group-item">typ1: {{ typ1 }}</li>
@@ -96,13 +101,14 @@
             <li class="list-group-item">voltoball: {{voltoball}}</li>
             <li class="list-group-item">surfer: {{surfer}}</li>
         </ul>
+    -->
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
         const PokemonApp = {
             data() {
                 return {
-                    // --- neues Pokemon ---
+                    // --- Daten des neuen Pokemons ---
                     name: 'Pikachu',
                     typ1: 'Wasser',
                     typ2: 'Elektro',
@@ -110,6 +116,14 @@
                     donnerblitz: false,
                     voltoball: true,
                     surfer: false,
+
+                    // --- Liste aller Pokemons ---
+                    pokemonList: [
+                        { name: 'Voltoball', gender: 'd' },
+                        { name: 'Relaxo', gender: 'm' },
+                        { name: 'Mew', gender: 'w' },
+                        { name: 'Mewtu', gender: 'd' }
+                    ]
                 }
             },
             computed: {
