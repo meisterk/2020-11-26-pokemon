@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="pizza-app" class="container bg-success p-2">
+    <div id="pokemon-app" class="container bg-success p-2">
         <h1 class="bg-light rounded m-2 p-2">Pokemon</h1>
 
         <div class="form-group bg-light rounded m-2 p-2">
@@ -99,9 +99,10 @@
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
-        const PizzaApp = {
+        const PokemonApp = {
             data() {
                 return {
+                    // --- neues Pokemon ---
                     name: 'Pikachu',
                     typ1: 'Wasser',
                     typ2: 'Elektro',
@@ -116,7 +117,7 @@
             methods: {
             }
         };
-        Vue.createApp(PizzaApp).mount('#pizza-app');
+        Vue.createApp(PokemonApp).mount('#pokemon-app');
     </script>
 </body>
 
