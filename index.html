@@ -126,14 +126,14 @@
                         donnerblitz: this.donnerblitz,
                         voltoball: this.voltoball,
                         surfer: this.surfer,
-                        attacken: this.attacken()
+                        attacken: this.attackenliste()
                     };
 
                     // neues Pokemon an Liste anhängen
                     this.pokemonList.push(newPokemon);
                 },
 
-                attacken() {
+                attackenliste() {
                     let text = '';
                     if (this.donnerblitz) {
                         text += 'Donnerblitz ';
