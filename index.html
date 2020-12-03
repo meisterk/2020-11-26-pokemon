@@ -82,11 +82,10 @@
             </div>
         </div>
 
-        <!-- 
         <div class="m-2">
-            <button class="btn btn-block btn-primary" @click="berechnen">Preis berechnen</button>
+            <button class="btn btn-block btn-primary" @click="hinzufuegen">Hinzufügen</button>
         </div>
-        -->
+
         <ul class="list-group m-2">
             <li class="list-group-item" v-for="pokemon in pokemonList"><strong>{{ pokemon.name }}</strong>:
                 {{ pokemon.typ1}},
@@ -115,9 +114,11 @@
                     ]
                 }
             },
-            computed: {
-            },
+
             methods: {
+                hinzufuegen() {
+                    console.log('Button wurde angeklickt.')
+                }
             }
         };
         Vue.createApp(PokemonApp).mount('#pokemon-app');
