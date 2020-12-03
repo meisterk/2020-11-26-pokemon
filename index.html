@@ -87,9 +87,13 @@
         </div>
 
         <ul class="list-group m-2">
-            <li class="list-group-item" v-for="pokemon in pokemonList"><strong>{{ pokemon.name }}</strong>:
-                {{ pokemon.typ1}},
-                {{ pokemon.typ2}} ({{ pokemon.gender }}), {{ pokemon.attacken }}
+            <li class="list-group-item d-flex justify-content-between" v-for="pokemon in pokemonList">
+                <span>
+                    <strong>{{ pokemon.name }}</strong>:
+                    {{ pokemon.typ1}},
+                    {{ pokemon.typ2}} ({{ pokemon.gender }}), {{ pokemon.attacken }}
+                </span>
+                <button class="btn btn-danger">-</button>
             </li>
         </ul>
     </div>
