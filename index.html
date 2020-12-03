@@ -23,6 +23,7 @@
             <label for="selectTyp1">Erster Typ</label>
             <select class="form-control" id="selectTyp1" v-model="typ1">
                 <option>Feuer</option>
+                <option>Normal</option>
                 <option>Wasser</option>
                 <option>Elektro</option>
                 <option>Pflanze</option>
@@ -32,6 +33,7 @@
             <label for="selectTyp2">Zweiter Typ</label>
             <select class="form-control" id="selectTyp2" v-model="typ2">
                 <option>Feuer</option>
+                <option>Normal</option>
                 <option>Wasser</option>
                 <option>Elektro</option>
                 <option>Pflanze</option>
@@ -86,22 +88,11 @@
         </div>
         -->
         <ul class="list-group m-2">
-            <li class="list-group-item" v-for="pokemon in pokemonList">{{ pokemon.name }} ({{ pokemon.gender }})
+            <li class="list-group-item" v-for="pokemon in pokemonList"><strong>{{ pokemon.name }}</strong>:
+                {{ pokemon.typ1}},
+                {{ pokemon.typ2}} ({{ pokemon.gender }})
             </li>
         </ul>
-
-        <!--
-        <ul class="list-group">
-            <li class="list-group-item">name: {{name}}</li>
-            <li class="list-group-item">typ1: {{ typ1 }}</li>
-            <li class="list-group-item">typ2: {{ typ2 }}</li>
-            <li class="list-group-item">gender: {{gender}}</li>
-            <li class="list-group-item">name: {{name}}</li>
-            <li class="list-group-item">donnerblitz: {{donnerblitz}}</li>
-            <li class="list-group-item">voltoball: {{voltoball}}</li>
-            <li class="list-group-item">surfer: {{surfer}}</li>
-        </ul>
-    -->
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
@@ -119,10 +110,8 @@
 
                     // --- Liste aller Pokemons ---
                     pokemonList: [
-                        { name: 'Voltoball', gender: 'd' },
-                        { name: 'Relaxo', gender: 'm' },
-                        { name: 'Mew', gender: 'w' },
-                        { name: 'Mewtu', gender: 'd' }
+                        { name: 'Voltoball', typ1: 'Elektro', typ2: 'Wasser', gender: 'd', donnerblitz: true, voltoball: true, surfer: false },
+                        { name: 'Relaxo', typ1: 'Normal', typ2: 'Normal', gender: 'm', donnerblitz: false, voltoball: false, surfer: true }
                     ]
                 }
             },
