@@ -89,7 +89,7 @@
         <ul class="list-group m-2">
             <li class="list-group-item" v-for="pokemon in pokemonList"><strong>{{ pokemon.name }}</strong>:
                 {{ pokemon.typ1}},
-                {{ pokemon.typ2}} ({{ pokemon.gender }})
+                {{ pokemon.typ2}} ({{ pokemon.gender }}), {{ pokemon.attacken }}
             </li>
         </ul>
     </div>
@@ -109,8 +109,8 @@
 
                     // --- Liste aller Pokemons ---
                     pokemonList: [
-                        { name: 'Voltoball', typ1: 'Elektro', typ2: 'Wasser', gender: 'd', donnerblitz: true, voltoball: true, surfer: false },
-                        { name: 'Relaxo', typ1: 'Normal', typ2: 'Normal', gender: 'm', donnerblitz: false, voltoball: false, surfer: true }
+                        { name: 'Voltoball', typ1: 'Elektro', typ2: 'Wasser', gender: 'd', donnerblitz: true, voltoball: true, surfer: false, attacken: 'Donnerblitz, Voltoball' },
+                        { name: 'Relaxo', typ1: 'Normal', typ2: 'Normal', gender: 'm', donnerblitz: false, voltoball: false, surfer: true, attacken: 'Surfer' }
                     ]
                 }
             },
@@ -125,11 +125,26 @@
                         gender: this.gender,
                         donnerblitz: this.donnerblitz,
                         voltoball: this.voltoball,
-                        surfer: this.surfer
+                        surfer: this.surfer,
+                        attacken: this.attacken()
                     };
 
                     // neues Pokemon an Liste anhängen
                     this.pokemonList.push(newPokemon);
+                },
+
+                attacken() {
+                    let text = '';
+                    if (this.donnerblitz) {
+                        text += 'Donnerblitz ';
+                    }
+                    if (this.voltoball) {
+                        text += 'Voltoball ';
+                    }
+                    if (this.surfer) {
+                        text += 'Surfer ';
+                    }
+                    return text;
                 }
             }
         };
