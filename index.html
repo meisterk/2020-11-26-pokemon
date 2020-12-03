@@ -93,7 +93,7 @@
                     {{ pokemon.typ1}},
                     {{ pokemon.typ2}} ({{ pokemon.gender }}), {{ pokemon.attacken }}
                 </span>
-                <button class="btn btn-danger">-</button>
+                <button class="btn btn-danger" @click="loeschen(pokemon.name)">-</button>
             </li>
         </ul>
     </div>
@@ -149,6 +149,10 @@
                         text += 'Surfer ';
                     }
                     return text;
+                },
+
+                loeschen(name) {
+                    console.log(name + " soll gelöscht werden.");
                 }
             }
         };
