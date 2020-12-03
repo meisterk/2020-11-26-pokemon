@@ -117,7 +117,19 @@
 
             methods: {
                 hinzufuegen() {
-                    console.log('Button wurde angeklickt.')
+                    // neues Pokemon erzeugen
+                    const newPokemon = {
+                        name: this.name,
+                        typ1: this.typ1,
+                        typ2: this.typ2,
+                        gender: this.gender,
+                        donnerblitz: this.donnerblitz,
+                        voltoball: this.voltoball,
+                        surfer: this.surfer
+                    };
+
+                    // neues Pokemon an Liste anhängen
+                    this.pokemonList.push(newPokemon);
                 }
             }
         };
