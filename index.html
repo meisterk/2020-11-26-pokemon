@@ -98,7 +98,7 @@
                     {{ pokemon.typ1}},
                     {{ pokemon.typ2}} ({{ pokemon.gender }}), {{ pokemon.attacken }}
                 </span>
-                <button class="btn btn-danger" @click="loeschen(pokemon.name)">-</button>
+                <button class="btn btn-danger" @click="loeschen(pokemon.id)">-</button>
             </li>
            </ul>
         </div>
@@ -129,7 +129,14 @@
                 // --- berechnete Datenfelder ---
                 // --- werden zwischengespeichert ---
                 nextId(){
-                    return this.pokemonList.length;
+                    // maximale Id + 1
+                    let maximaleId = -1;
+                    for(let i=0; i<this.pokemonList.length; i++){
+                        if(this.pokemonList[i].id > maximaleId){
+                            maximaleId = this.pokemonList[i].id;
+                        }
+                    }
+                    return maximaleId + 1;
                 },
 
                 attackenliste() {
@@ -164,12 +171,11 @@
 
                     // neues Pokemon an Liste anhängen
                     this.pokemonList.push(newPokemon);
-                },
+                },                
 
-                
-
-                loeschen(name) {
-                    console.log(name + " soll gelöscht werden.");
+                loeschen(id) {
+                    // Pokemon mit der id von Liste enfernen
+                    this.pokemonList.splice(id,1);
                 }
             }
         };
