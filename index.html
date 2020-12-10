@@ -130,6 +130,20 @@
                 // --- werden zwischengespeichert ---
                 nextId(){
                     return this.pokemonList.length;
+                },
+
+                attackenliste() {
+                    let text = '';
+                    if (this.donnerblitz) {
+                        text += 'Donnerblitz ';
+                    }
+                    if (this.voltoball) {
+                        text += 'Voltoball ';
+                    }
+                    if (this.surfer) {
+                        text += 'Surfer ';
+                    }
+                    return text;
                 }
             },
 
@@ -145,26 +159,14 @@
                         donnerblitz: this.donnerblitz,
                         voltoball: this.voltoball,
                         surfer: this.surfer,
-                        attacken: this.attackenliste()
+                        attacken: this.attackenliste
                     };
 
                     // neues Pokemon an Liste anhängen
                     this.pokemonList.push(newPokemon);
                 },
 
-                attackenliste() {
-                    let text = '';
-                    if (this.donnerblitz) {
-                        text += 'Donnerblitz ';
-                    }
-                    if (this.voltoball) {
-                        text += 'Voltoball ';
-                    }
-                    if (this.surfer) {
-                        text += 'Surfer ';
-                    }
-                    return text;
-                },
+                
 
                 loeschen(name) {
                     console.log(name + " soll gelöscht werden.");
