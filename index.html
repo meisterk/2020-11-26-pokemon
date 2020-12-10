@@ -175,7 +175,13 @@
 
                 loeschen(id) {
                     // Pokemon mit der id von Liste enfernen
-                    this.pokemonList.splice(id,1);
+                    let index = -1;
+                    for(let i=0; i<this.pokemonList.length; i++){
+                        if(this.pokemonList[i].id === id){
+                            index = i;
+                        }
+                    }
+                    this.pokemonList.splice(index,1);
                 }
             }
         };
