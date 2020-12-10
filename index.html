@@ -93,6 +93,8 @@
             <h2>Statistik</h2>
             <p>Anzahl der Pokemons: {{ anzahlPokemons }}</p>
             <p>Anzahl der männlichen Pokemons: {{ anzahlMaennlich }}</p>
+            <p>Anzahl der weiblichen Pokemons: {{ anzahlWeiblich }} ({{ anteilWeiblichProzent }}%)</p>
+            <p>Anzahl der diversen Pokemons: {{ anzahlDivers }}</p>
         </div>
 
         <div class="bg-light rounded m-2 p-2">
@@ -139,7 +141,39 @@
                 },
 
                 anzahlMaennlich(){
-                    return 'xyz';
+                    let anzahl = 0;
+                    for(let i=0; i<this.pokemonList.length; i++){
+                        if(this.pokemonList[i].gender === 'm'){
+                            anzahl++;
+                        }
+                    }
+                    return anzahl;
+                },
+
+                anzahlWeiblich(){
+                    let anzahl = 0;
+                    for(let i=0; i<this.pokemonList.length; i++){
+                        if(this.pokemonList[i].gender === 'w'){
+                            anzahl++;
+                        }
+                    }
+                    return anzahl;
+                },
+
+                anteilWeiblichProzent(){
+                    const prozentWert = 100 * this.anzahlWeiblich / this.anzahlPokemons;
+                    const prozentWertGerundet = prozentWert.toFixed(0);
+                    return prozentWertGerundet;
+                },
+
+                anzahlDivers(){
+                    let anzahl = 0;
+                    for(let i=0; i<this.pokemonList.length; i++){
+                        if(this.pokemonList[i].gender === 'd'){
+                            anzahl++;
+                        }
+                    }
+                    return anzahl;
                 },
 
                 nextId(){
