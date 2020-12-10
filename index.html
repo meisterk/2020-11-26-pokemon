@@ -89,7 +89,9 @@
         </div>
         </div>
 
-        <ul class="list-group m-2">
+        <div class="bg-light rounded m-2 p-2">
+            <h2>Liste aller Pokemons</h2>
+            <ul class="list-group m-2">
             <li class="list-group-item d-flex justify-content-between" v-for="pokemon in pokemonList">
                 <span>
                     <strong>{{ pokemon.name }}</strong>:
@@ -98,7 +100,8 @@
                 </span>
                 <button class="btn btn-danger" @click="loeschen(pokemon.name)">-</button>
             </li>
-        </ul>
+           </ul>
+        </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
