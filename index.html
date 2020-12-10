@@ -92,9 +92,9 @@
         <div class="bg-light rounded m-2 p-2">
             <h2>Liste aller Pokemons</h2>
             <ul class="list-group m-2">
-            <li class="list-group-item d-flex justify-content-between" v-for="pokemon in pokemonList">
+            <li class="list-group-item d-flex justify-content-between" v-for="pokemon in pokemonList" :key="pokemon.id">
                 <span>
-                    <strong>{{ pokemon.name }}</strong>:
+                    <strong>{{ pokemon.id }} {{ pokemon.name }}</strong>:
                     {{ pokemon.typ1}},
                     {{ pokemon.typ2}} ({{ pokemon.gender }}), {{ pokemon.attacken }}
                 </span>
@@ -108,7 +108,7 @@
         const PokemonApp = {
             data() {
                 return {
-                    // --- Daten des neuen Pokemons ---
+                    // --- Daten des neuen Pokemons ---                    
                     name: 'Pikachu',
                     typ1: 'Wasser',
                     typ2: 'Elektro',
@@ -119,9 +119,15 @@
 
                     // --- Liste aller Pokemons ---
                     pokemonList: [
-                        { name: 'Voltoball', typ1: 'Elektro', typ2: 'Wasser', gender: 'd', donnerblitz: true, voltoball: true, surfer: false, attacken: 'Donnerblitz, Voltoball' },
-                        { name: 'Relaxo', typ1: 'Normal', typ2: 'Normal', gender: 'm', donnerblitz: false, voltoball: false, surfer: true, attacken: 'Surfer' }
+                        { id: 0, name: 'Voltoball', typ1: 'Elektro', typ2: 'Wasser', gender: 'd', donnerblitz: true, voltoball: true, surfer: false, attacken: 'Donnerblitz, Voltoball' },
+                        { id: 1, name: 'Relaxo', typ1: 'Normal', typ2: 'Normal', gender: 'm', donnerblitz: false, voltoball: false, surfer: true, attacken: 'Surfer' }
                     ]
+                }
+            },
+
+            computed: {
+                nextId(){
+                    return this.pokemonList.length;
                 }
             },
 
@@ -129,6 +135,7 @@
                 hinzufuegen() {
                     // neues Pokemon erzeugen
                     const newPokemon = {
+                        id: this.nextId,
                         name: this.name,
                         typ1: this.typ1,
                         typ2: this.typ2,
