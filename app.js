@@ -17,7 +17,9 @@ const PokemonApp = {
             ],
 
             // --- Variablen zum Sichtbarmachen
-            displayFormular: false
+            displayFormular: false,
+            displayStatistik: true,
+            displayListe: true
         }
     },
 
@@ -91,6 +93,12 @@ const PokemonApp = {
     },
 
     methods: {
+        formularAnzeigen() {
+            this.displayFormular = true;
+            this.displayStatistik = false;
+            this.displayListe = false;
+        },
+
         hinzufuegen() {
             // neues Pokemon erzeugen
             const newPokemon = {

@@ -92,7 +92,7 @@
         </div>
 
         <!-- Statistik -->
-        <div class="bg-light rounded m-2 p-2">
+        <div v-if="displayStatistik" class="bg-light rounded m-2 p-2">
             <h2>Statistik</h2>
             <p>Anzahl der Pokemons: {{ anzahlPokemons }}</p>
             <p>Anzahl der männlichen Pokemons: {{ anzahlMaennlich }}</p>
@@ -101,7 +101,7 @@
         </div>
 
         <!-- Liste aller Pokemons -->
-        <div class="bg-light rounded m-2 p-2">
+        <div v-if="displayListe" class="bg-light rounded m-2 p-2">
             <h2>Liste aller Pokemons</h2>
             <ul class="list-group m-2">
             <li class="list-group-item d-flex justify-content-between" v-for="pokemon in pokemonList" :key="pokemon.id">
@@ -112,8 +112,9 @@
                 </span>
                 <button class="btn btn-danger" @click="loeschen(pokemon.id)">-</button>
             </li>
+            <!-- Button Neu-->
+            <li class="list-group-item"><button @click="formularAnzeigen" class="btn btn-block btn-success">+</button></li>
            </ul>
-           <!-- Button Neu-->
         </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
