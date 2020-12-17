@@ -99,6 +99,12 @@ const PokemonApp = {
             this.displayListe = false;
         },
 
+        statistikUndListeAnzeigen() {
+            this.displayFormular = false;
+            this.displayStatistik = true;
+            this.displayListe = true;
+        },
+
         hinzufuegen() {
             // neues Pokemon erzeugen
             const newPokemon = {
@@ -115,6 +121,9 @@ const PokemonApp = {
 
             // neues Pokemon an Liste anhängen
             this.pokemonList.push(newPokemon);
+
+            // Statistik und Liste anzeigen
+            this.statistikUndListeAnzeigen();
         },
 
         loeschen(id) {
