@@ -15,7 +15,7 @@
         <h1 class="bg-light rounded m-2 p-2">Pokemon</h1>
 
         <!-- Formular neues Pokemon -->
-        <div class="bg-light rounded m-2 p-2">
+        <div v-if="displayFormular" class="bg-light rounded m-2 p-2">
             <h2>Neues Pokemon eintragen</h2>
             <div class="form-group bg-light rounded m-2 p-2">
                 <h3>Name</h3>
@@ -113,6 +113,7 @@
                 <button class="btn btn-danger" @click="loeschen(pokemon.id)">-</button>
             </li>
            </ul>
+           <!-- Button Neu-->
         </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
