@@ -97,6 +97,7 @@ const PokemonApp = {
     },
 
     methods: {
+        // ### Komponenten anzeigen und verstecken ###
         formularAnzeigen() {
             this.displayFormular = true;
             this.displayStatistik = false;
@@ -118,7 +119,8 @@ const PokemonApp = {
             this.displayListe = false;
         },
 
-        hinzufuegen() {
+        // ### Handler für Buttons ###
+        buttonHinzufuegen() {
             // neues Pokemon erzeugen
             const newPokemon = {
                 id: this.nextId,
@@ -142,7 +144,7 @@ const PokemonApp = {
             this.speichern();
         },
 
-        aenderungenSpeichern(index) {
+        buttonAenderungenSpeichern(index) {
             // neues Pokemon erzeugen
             const newPokemon = {
                 id: this.nextId,
@@ -165,8 +167,8 @@ const PokemonApp = {
             // Daten persistent speichern
             this.speichern();
         },
-
-        loeschen(id) {
+        
+        buttonLoeschen(id) {
             // Pokemon mit der id von Liste enfernen
             let index = -1;
             for (let i = 0; i < this.pokemonList.length; i++) {
@@ -180,7 +182,7 @@ const PokemonApp = {
             this.speichern();
         },
 
-        update(id){
+        buttonUpdate(id){
             // Daten des Pokemon mit id holen
             let index = -1;
             for (let i = 0; i < this.pokemonList.length; i++) {
@@ -205,6 +207,14 @@ const PokemonApp = {
             this.updateAnzeigen();
         },
 
+        buttonCancel(){
+            // GUI anzeigen
+            this.statistikUndListeAnzeigen();
+        },
+
+        // Statistik und Liste anzeigen
+
+        // ### localStorage ###
         speichern() {
             // Komplettes Array mit Pokemons im 'localStorage' speichern
             const text = JSON.stringify(this.pokemonList);

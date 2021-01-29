@@ -87,7 +87,7 @@
         </div>
 
         <div class="m-2">
-            <button class="btn btn-block btn-primary" @click="hinzufuegen">Hinzufügen</button>
+            <button class="btn btn-block btn-primary" @click="buttonHinzufuegen">Hinzufügen</button>
         </div>
         </div>
 
@@ -164,7 +164,7 @@
         </div>
 
         <div class="m-2">
-            <button class="btn btn-block btn-primary" @click="aenderungenSpeichern(this.aktuellerIndex)">Änderungen speichern</button>
+            <button class="btn btn-block btn-primary" @click="buttonAenderungenSpeichern(this.aktuellerIndex)">Änderungen speichern</button>
         </div>
         </div>
 
@@ -188,8 +188,8 @@
                     {{ pokemon.typ2}} ({{ pokemon.gender }}), {{ pokemon.attacken }}
                 </span>
                 <span>
-                <button class="btn btn-secondary mr-2" @click="update(pokemon.id)">update</button>
-                <button class="btn btn-danger" @click="loeschen(pokemon.id)">-</button></span>
+                <button class="btn btn-secondary mr-2" @click="buttonUpdate(pokemon.id)">update</button>
+                <button class="btn btn-danger" @click="buttonLoeschen(pokemon.id)">-</button></span>
             </li>
             <!-- Button Neu-->
             <li class="list-group-item"><button @click="formularAnzeigen" class="btn btn-block btn-success">+</button></li>
