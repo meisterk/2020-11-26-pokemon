@@ -19,7 +19,11 @@ const PokemonApp = {
             // --- Variablen zum Sichtbarmachen
             displayFormular: false,
             displayStatistik: true,
-            displayListe: true
+            displayListe: true,
+            displayUpdate: false,
+
+            // --- für Update
+            aktuellerIndex: -1
         }
     },
 
@@ -97,12 +101,21 @@ const PokemonApp = {
             this.displayFormular = true;
             this.displayStatistik = false;
             this.displayListe = false;
+            this.displayUpdate = false;
         },
 
         statistikUndListeAnzeigen() {
             this.displayFormular = false;
             this.displayStatistik = true;
             this.displayListe = true;
+            this.displayUpdate = false;
+        },
+
+        updateAnzeigen(){
+            this.displayFormular = false;
+            this.displayUpdate = true;
+            this.displayStatistik = false;
+            this.displayListe = false;
         },
 
         hinzufuegen() {
@@ -129,6 +142,30 @@ const PokemonApp = {
             this.speichern();
         },
 
+        aenderungenSpeichern(index) {
+            // neues Pokemon erzeugen
+            const newPokemon = {
+                id: this.nextId,
+                name: this.name,
+                typ1: this.typ1,
+                typ2: this.typ2,
+                gender: this.gender,
+                donnerblitz: this.donnerblitz,
+                voltoball: this.voltoball,
+                surfer: this.surfer,
+                attacken: this.attackenliste
+            };
+
+            // altes Pokemon durch neues ersetzen
+            this.pokemonList[index] = newPokemon;
+
+            // Statistik und Liste anzeigen
+            this.statistikUndListeAnzeigen();
+
+            // Daten persistent speichern
+            this.speichern();
+        },
+
         loeschen(id) {
             // Pokemon mit der id von Liste enfernen
             let index = -1;
@@ -143,11 +180,35 @@ const PokemonApp = {
             this.speichern();
         },
 
+        update(id){
+            // Daten des Pokemon mit id holen
+            let index = -1;
+            for (let i = 0; i < this.pokemonList.length; i++) {
+                if (this.pokemonList[i].id === id) {
+                    index = i;
+                }
+            }
+            let aktuellesPokemon = this.pokemonList[index];
+
+            // Daten vom Pokemon auf GUI übertragen
+            this.name = aktuellesPokemon.name;
+            this.typ1 = aktuellesPokemon.typ1;
+            this.typ2 = aktuellesPokemon.typ2;
+            this.gender = aktuellesPokemon.gender;
+            this.donnerblitz = aktuellesPokemon.donnerblitz;
+            this.voltoball = aktuellesPokemon.voltoball;
+            this.surfer = aktuellesPokemon.surfer;
+
+            this.aktuellerIndex = index;
+
+            // GUI anzeigen
+            this.updateAnzeigen();
+        },
+
         speichern() {
             // Komplettes Array mit Pokemons im 'localStorage' speichern
             const text = JSON.stringify(this.pokemonList);
-            localStorage.setItem('pokemonliste', text);
-            console.log(text);
+            localStorage.setItem('pokemonliste', text);            
         },
 
         laden() {
