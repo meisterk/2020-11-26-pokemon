@@ -1,14 +1,19 @@
 const PokemonApp = {
     data() {
         return {
-            // --- Daten des neuen Pokemons ---                    
-            name: 'Pikachu',
-            typ1: 'Wasser',
-            typ2: 'Elektro',
-            gender: 'w',
-            donnerblitz: false,
-            voltoball: true,
-            surfer: false,
+            // --- Daten des neuen Pokemons --- 
+            newPokemon: {                   
+                name: 'Pikachu',
+                typ1: 'Wasser',
+                typ2: 'Elektro',
+                gender: 'w',
+                donnerblitz: false,
+                voltoball: true,
+                surfer: false
+            },
+
+            // Daten des Pokemons, welches upgedated wird
+            updatePokemon: {},
 
             // --- Liste aller Pokemons ---
             pokemonList: [
@@ -126,14 +131,14 @@ const PokemonApp = {
             // neues Pokemon erzeugen
             const newPokemon = {
                 id: this.nextId,
-                name: this.name,
-                typ1: this.typ1,
-                typ2: this.typ2,
-                gender: this.gender,
-                donnerblitz: this.donnerblitz,
-                voltoball: this.voltoball,
-                surfer: this.surfer,
-                attacken: this.attackenliste
+                name: this.newPokemon.name,
+                typ1: this.newPokemon.typ1,
+                typ2: this.newPokemon.typ2,
+                gender: this.newPokemon.gender,
+                donnerblitz: this.newPokemon.donnerblitz,
+                voltoball: this.newPokemon.voltoball,
+                surfer: this.newPokemon.surfer,
+                attacken: this.newPokemon.attackenliste
             };
 
             // neues Pokemon an Liste anhängen
@@ -146,30 +151,6 @@ const PokemonApp = {
             this.speichern();
         },
 
-        buttonAenderungenSpeichern(index) {
-            // neues Pokemon erzeugen
-            const newPokemon = {
-                id: this.nextId,
-                name: this.name,
-                typ1: this.typ1,
-                typ2: this.typ2,
-                gender: this.gender,
-                donnerblitz: this.donnerblitz,
-                voltoball: this.voltoball,
-                surfer: this.surfer,
-                attacken: this.attackenliste
-            };
-
-            // altes Pokemon durch neues ersetzen
-            this.pokemonList[index] = newPokemon;
-
-            // Statistik und Liste anzeigen
-            this.statistikUndListeAnzeigen();
-
-            // Daten persistent speichern
-            this.speichern();
-        },
-        
         buttonLoeschen(id) {
             // Pokemon mit der id von Liste enfernen
             let index = -1;
@@ -195,13 +176,14 @@ const PokemonApp = {
             let aktuellesPokemon = this.pokemonList[index];
 
             // Daten vom Pokemon auf GUI übertragen
-            this.name = aktuellesPokemon.name;
-            this.typ1 = aktuellesPokemon.typ1;
-            this.typ2 = aktuellesPokemon.typ2;
-            this.gender = aktuellesPokemon.gender;
-            this.donnerblitz = aktuellesPokemon.donnerblitz;
-            this.voltoball = aktuellesPokemon.voltoball;
-            this.surfer = aktuellesPokemon.surfer;
+            this.updatePokemon.id = aktuellesPokemon.id;
+            this.updatePokemon.name = aktuellesPokemon.name;
+            this.updatePokemon.typ1 = aktuellesPokemon.typ1;
+            this.updatePokemon.typ2 = aktuellesPokemon.typ2;
+            this.updatePokemon.gender = aktuellesPokemon.gender;
+            this.updatePokemon.donnerblitz = aktuellesPokemon.donnerblitz;
+            this.updatePokemon.voltoball = aktuellesPokemon.voltoball;
+            this.updatePokemon.surfer = aktuellesPokemon.surfer;
 
             this.aktuellerIndex = index;
 
@@ -209,6 +191,35 @@ const PokemonApp = {
             this.updateAnzeigen();
         },
 
+        buttonAenderungenSpeichern(index) {
+            // neues Pokemon erzeugen als Kopie
+            const newPokemon = Object.assign({}, this.updatePokemon);
+
+            /*
+            Umständlicher Quellcode zum Erzeugen einer Kopie
+            const newPokemon = {
+                id: this.updatePokemon.id,
+                name: this.updatePokemon.name,
+                typ1: this.updatePokemon.typ1,
+                typ2: this.updatePokemon.typ2,
+                gender: this.updatePokemon.gender,
+                donnerblitz: this.updatePokemon.donnerblitz,
+                voltoball: this.updatePokemon.voltoball,
+                surfer: this.updatePokemon.surfer,
+                attacken: this.updatePokemon.attackenliste
+            };
+            */            
+
+            // altes Pokemon durch neues ersetzen
+            this.pokemonList[index] = newPokemon;
+
+            // Statistik und Liste anzeigen
+            this.statistikUndListeAnzeigen();
+
+            // Daten persistent speichern
+            this.speichern();
+        },
+        
         buttonCancel(){
             // GUI anzeigen
             this.statistikUndListeAnzeigen();
