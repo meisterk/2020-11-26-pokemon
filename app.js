@@ -17,10 +17,12 @@ const PokemonApp = {
             ],
 
             // --- Variablen zum Sichtbarmachen
-            displayFormular: false,
-            displayStatistik: true,
-            displayListe: true,
-            displayUpdate: false,
+            display: {
+                Formular: false,
+                Statistik: true,
+                Liste: true,
+                Update: false
+            },
 
             // --- für Update
             aktuellerIndex: -1
@@ -99,24 +101,24 @@ const PokemonApp = {
     methods: {
         // ### Komponenten anzeigen und verstecken ###
         formularAnzeigen() {
-            this.displayStatistik = false;
-            this.displayListe = false;
-            this.displayFormular = true;            
-            this.displayUpdate = false;
+            this.display.Statistik = false;
+            this.display.Liste = false;
+            this.display.Formular = true;            
+            this.display.Update = false;
         },
 
         statistikUndListeAnzeigen() {
-            this.displayStatistik = true;
-            this.displayListe = true;
-            this.displayFormular = false;
-            this.displayUpdate = false;
+            this.display.Statistik = true;
+            this.display.Liste = true;
+            this.display.Formular = false;
+            this.display.Update = false;
         },
 
         updateAnzeigen(){
-            this.displayStatistik = false;
-            this.displayListe = false;
-            this.displayFormular = false;
-            this.displayUpdate = true;            
+            this.display.Statistik = false;
+            this.display.Liste = false;
+            this.display.Formular = false;
+            this.display.Update = true;            
         },
 
         // ### Handler für Buttons ###
