@@ -14,6 +14,34 @@
         <!-- Header -->
         <h1 class="bg-light rounded m-2 p-2">Pokemon</h1>
 
+        <!-- Statistik -->
+        <div v-if="displayStatistik" class="bg-light rounded m-2 p-2">
+            <h2>Statistik</h2>
+            <p>Anzahl der Pokemons: {{ anzahlPokemons }}</p>
+            <p>Anzahl der männlichen Pokemons: {{ anzahlMaennlich }}</p>
+            <p>Anzahl der weiblichen Pokemons: {{ anzahlWeiblich }} ({{ anteilWeiblichProzent }}%)</p>
+            <p>Anzahl der diversen Pokemons: {{ anzahlDivers }}</p>
+        </div>
+
+        <!-- Liste aller Pokemons -->
+        <div v-if="displayListe" class="bg-light rounded m-2 p-2">
+            <h2>Liste aller Pokemons</h2>
+            <ul class="list-group m-2">
+            <li class="list-group-item d-flex justify-content-between" v-for="pokemon in pokemonList" :key="pokemon.id">
+                <span>
+                    <strong>{{ pokemon.name }}</strong>:
+                    {{ pokemon.typ1}},
+                    {{ pokemon.typ2}} ({{ pokemon.gender }}), {{ pokemon.attacken }}
+                </span>
+                <span>
+                <button class="btn btn-secondary mr-2" @click="buttonUpdate(pokemon.id)">update</button>
+                <button class="btn btn-danger" @click="buttonLoeschen(pokemon.id)">-</button></span>
+            </li>
+            <!-- Button Neu-->
+            <li class="list-group-item"><button @click="formularAnzeigen" class="btn btn-block btn-success">+</button></li>
+           </ul>
+        </div>
+        
         <!-- Formular neues Pokemon -->
         <div v-if="displayFormular" class="bg-light rounded m-2 p-2">
             <h2>Neues Pokemon eintragen</h2>
@@ -169,33 +197,6 @@
         </div>
         </div>
 
-        <!-- Statistik -->
-        <div v-if="displayStatistik" class="bg-light rounded m-2 p-2">
-            <h2>Statistik</h2>
-            <p>Anzahl der Pokemons: {{ anzahlPokemons }}</p>
-            <p>Anzahl der männlichen Pokemons: {{ anzahlMaennlich }}</p>
-            <p>Anzahl der weiblichen Pokemons: {{ anzahlWeiblich }} ({{ anteilWeiblichProzent }}%)</p>
-            <p>Anzahl der diversen Pokemons: {{ anzahlDivers }}</p>
-        </div>
-
-        <!-- Liste aller Pokemons -->
-        <div v-if="displayListe" class="bg-light rounded m-2 p-2">
-            <h2>Liste aller Pokemons</h2>
-            <ul class="list-group m-2">
-            <li class="list-group-item d-flex justify-content-between" v-for="pokemon in pokemonList" :key="pokemon.id">
-                <span>
-                    <strong>{{ pokemon.name }}</strong>:
-                    {{ pokemon.typ1}},
-                    {{ pokemon.typ2}} ({{ pokemon.gender }}), {{ pokemon.attacken }}
-                </span>
-                <span>
-                <button class="btn btn-secondary mr-2" @click="buttonUpdate(pokemon.id)">update</button>
-                <button class="btn btn-danger" @click="buttonLoeschen(pokemon.id)">-</button></span>
-            </li>
-            <!-- Button Neu-->
-            <li class="list-group-item"><button @click="formularAnzeigen" class="btn btn-block btn-success">+</button></li>
-           </ul>
-        </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="app.js"></script>
