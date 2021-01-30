@@ -99,24 +99,24 @@ const PokemonApp = {
     methods: {
         // ### Komponenten anzeigen und verstecken ###
         formularAnzeigen() {
-            this.displayFormular = true;
             this.displayStatistik = false;
             this.displayListe = false;
+            this.displayFormular = true;            
             this.displayUpdate = false;
         },
 
         statistikUndListeAnzeigen() {
-            this.displayFormular = false;
             this.displayStatistik = true;
             this.displayListe = true;
+            this.displayFormular = false;
             this.displayUpdate = false;
         },
 
         updateAnzeigen(){
-            this.displayFormular = false;
-            this.displayUpdate = true;
             this.displayStatistik = false;
             this.displayListe = false;
+            this.displayFormular = false;
+            this.displayUpdate = true;            
         },
 
         // ### Handler für Buttons ###
