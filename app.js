@@ -210,9 +210,7 @@ const PokemonApp = {
         buttonCancel(){
             // GUI anzeigen
             this.statistikUndListeAnzeigen();
-        },
-
-        // Statistik und Liste anzeigen
+        },        
 
         // ### Persistenz: localStorage ###
         speichern() {
