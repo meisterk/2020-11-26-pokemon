@@ -214,7 +214,7 @@ const PokemonApp = {
 
         // Statistik und Liste anzeigen
 
-        // ### localStorage ###
+        // ### Persistenz: localStorage ###
         speichern() {
             // Komplettes Array mit Pokemons im 'localStorage' speichern
             const text = JSON.stringify(this.pokemonList);
