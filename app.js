@@ -138,7 +138,7 @@ const PokemonApp = {
                 donnerblitz: this.newPokemon.donnerblitz,
                 voltoball: this.newPokemon.voltoball,
                 surfer: this.newPokemon.surfer,
-                attacken: this.newPokemon.attackenliste
+                attacken: this.newPokemon.attackenliste // FEHLER!
             };
 
             // neues Pokemon an Liste anhängen
