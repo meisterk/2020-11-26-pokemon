@@ -23,10 +23,7 @@ const PokemonApp = {
 
             // ####### Model #########################
             // --- Liste aller Pokemons ---
-            pokemonList: [],            
-            
-            // --- für Update
-            aktuellerIndex: -1            
+            pokemonList: []
         }
     },
 
@@ -175,9 +172,7 @@ const PokemonApp = {
             this.updatePokemon.donnerblitz = aktuellesPokemon.donnerblitz;
             this.updatePokemon.voltoball = aktuellesPokemon.voltoball;
             this.updatePokemon.surfer = aktuellesPokemon.surfer;
-
-            //this.updatePokemon.aktuellerIndex = index; // für Speichern-Button
-
+            
             // GUI anzeigen
             this.updateAnzeigen();
         },
