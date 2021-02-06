@@ -26,8 +26,7 @@ const PokemonApp = {
             pokemonList: [],            
             
             // --- für Update
-            aktuellerIndex: -1,
-            idUpdatePokemon: -1
+            aktuellerIndex: -1            
         }
     },
 
