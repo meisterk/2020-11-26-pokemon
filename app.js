@@ -3,15 +3,7 @@ const PokemonApp = {
         return {
             // ####### View, GUI #########################
             // --- Daten des Formulars "Neues Pokemon" --- 
-            newPokemon: {                   
-                name: 'Pikachu',
-                typ1: 'Wasser',
-                typ2: 'Elektro',
-                gender: 'w',
-                donnerblitz: false,
-                voltoball: true,
-                surfer: false
-            },
+            newPokemon: {},
 
             // --- Daten des Update-Formulars ---
             updatePokemon: {},
@@ -109,7 +101,7 @@ const PokemonApp = {
             this.display.statistik = false;
             this.display.liste = false;
             this.display.formNew = true;            
-            this.display.formUpdate = false;
+            this.display.formUpdate = false;            
         },
 
         statistikUndListeAnzeigen() {
@@ -127,6 +119,22 @@ const PokemonApp = {
         },
 
         // ### Handler für Buttons ###
+        buttonNew(){
+            // Standardwerte für neues Pokemon einstellen
+            this.newPokemon = {                   
+                   name: 'Pikachu',
+                typ1: 'Wasser',
+                typ2: 'Elektro',
+                gender: 'w',
+                donnerblitz: false,
+                voltoball: true,
+                surfer: false
+            };
+
+            // Formular zur Eingabe anzeigen
+            this.formNewAnzeigen();
+        },
+
         buttonHinzufuegen() {
             // neues Pokemon erzeugen
             const newPokemon = {
