@@ -25,7 +25,7 @@ const PokemonApp = {
             display: {
                 statistik: true,
                 liste: true,
-                formular: false,
+                formNew: false,
                 update: false
             },
 
@@ -108,21 +108,21 @@ const PokemonApp = {
         formularAnzeigen() {
             this.display.statistik = false;
             this.display.liste = false;
-            this.display.formular = true;            
+            this.display.formNew = true;            
             this.display.update = false;
         },
 
         statistikUndListeAnzeigen() {
             this.display.statistik = true;
             this.display.liste = true;
-            this.display.formular = false;
+            this.display.formNew = false;
             this.display.update = false;
         },
 
         updateAnzeigen(){
             this.display.statistik = false;
             this.display.liste = false;
-            this.display.formular = false;
+            this.display.formNew = false;
             this.display.update = true;            
         },
 
