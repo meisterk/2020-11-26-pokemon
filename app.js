@@ -13,7 +13,7 @@ const PokemonApp = {
             // --- Daten des Update-Formulars ---
             updatePokemon: {},
 
-            // --- Variablen zum Sichtbarmachen
+            // --- Variablen zum Sichtbarmachen der Komponenten ---
             display: {
                 statistik: true,
                 liste: true,
