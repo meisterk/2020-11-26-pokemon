@@ -23,9 +23,9 @@ const PokemonApp = {
 
             // --- Variablen zum Sichtbarmachen
             display: {
-                Formular: false,
                 Statistik: true,
                 Liste: true,
+                Formular: false,
                 Update: false
             },
 
