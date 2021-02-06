@@ -1,6 +1,7 @@
 const PokemonApp = {
     data() {
         return {
+            // ####### View, GUI #########################
             // --- Daten des Formulars "Neues Pokemon" --- 
             newPokemon: {                   
                 name: 'Pikachu',
@@ -15,12 +16,6 @@ const PokemonApp = {
             // --- Daten des Update-Formulars ---
             updatePokemon: {},
 
-            // --- Liste aller Pokemons ---
-            pokemonList: [
-                { id: 0, name: 'Voltoball', typ1: 'Elektro', typ2: 'Wasser', gender: 'd', donnerblitz: true, voltoball: true, surfer: false, attacken: 'Donnerblitz, Voltoball' },
-                { id: 1, name: 'Relaxo', typ1: 'Normal', typ2: 'Normal', gender: 'm', donnerblitz: false, voltoball: false, surfer: true, attacken: 'Surfer' }
-            ],
-
             // --- Variablen zum Sichtbarmachen
             display: {
                 statistik: true,
@@ -29,6 +24,10 @@ const PokemonApp = {
                 formUpdate: false
             },
 
+            // ####### Model #########################
+            // --- Liste aller Pokemons ---
+            pokemonList: [],            
+            
             // --- für Update
             aktuellerIndex: -1
         }
