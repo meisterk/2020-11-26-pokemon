@@ -29,7 +29,8 @@ const PokemonApp = {
             pokemonList: [],            
             
             // --- für Update
-            aktuellerIndex: -1
+            aktuellerIndex: -1,
+            idUpdatePokemon: -1
         }
     },
 
@@ -103,7 +104,7 @@ const PokemonApp = {
     },
 
     methods: {
-        // ### Komponenten anzeigen und verstecken ###
+        // ### GUI: Komponenten anzeigen und verstecken ###
         formularAnzeigen() {
             this.display.statistik = false;
             this.display.liste = false;
@@ -152,12 +153,7 @@ const PokemonApp = {
 
         buttonLoeschen(id) {
             // Pokemon mit der id von Liste enfernen
-            let index = -1;
-            for (let i = 0; i < this.pokemonList.length; i++) {
-                if (this.pokemonList[i].id === id) {
-                    index = i;
-                }
-            }
+            const index = this.getIndexFromId(id);
             this.pokemonList.splice(index, 1);
 
             // Daten persistent speichern
@@ -166,12 +162,7 @@ const PokemonApp = {
 
         buttonUpdate(id){
             // Daten des Pokemon mit id holen
-            let index = -1;
-            for (let i = 0; i < this.pokemonList.length; i++) {
-                if (this.pokemonList[i].id === id) {
-                    index = i;
-                }
-            }
+            const index = this.getIndexFromId(id);
             let aktuellesPokemon = this.pokemonList[index];
 
             // Daten vom Pokemon auf GUI übertragen
@@ -184,7 +175,7 @@ const PokemonApp = {
             this.updatePokemon.voltoball = aktuellesPokemon.voltoball;
             this.updatePokemon.surfer = aktuellesPokemon.surfer;
 
-            this.aktuellerIndex = index;
+            this.updatePokemon.aktuellerIndex = index; // für Speichern-Button
 
             // GUI anzeigen
             this.updateAnzeigen();
@@ -222,7 +213,19 @@ const PokemonApp = {
         buttonCancel(){
             // GUI anzeigen
             this.statistikUndListeAnzeigen();
-        },        
+        },
+        
+        // ### Hilfsmethoden
+        getIndexFromId(id){
+            let index = -1; // falls id nicht gefunden wird
+            for (let i = 0; i < this.pokemonList.length; i++) {
+                if (this.pokemonList[i].id === id) {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        },
 
         // ### Persistenz: localStorage ###
         speichern() {

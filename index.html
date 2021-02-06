@@ -29,8 +29,8 @@
             <li v-for="pokemon in pokemonList" :key="pokemon.id" class="list-group-item d-flex justify-content-between">
                 <span>
                     <strong>{{ pokemon.name }}</strong>:
-                    {{ pokemon.typ1}},
-                    {{ pokemon.typ2}} ({{ pokemon.gender }}), {{ pokemon.attacken }}
+                    {{ pokemon.typ1 }},
+                    {{ pokemon.typ2 }} ({{ pokemon.gender }}), {{ pokemon.attacken }}
                 </span>
                 <span>
                 <button @click="buttonUpdate(pokemon.id)" class="btn btn-secondary mr-2">update</button>
@@ -192,7 +192,7 @@
 
         <div class="d-flex justify-content-end m-2">
             <button @click="buttonCancel" class="btn btn-warning mr-2">Abbrechen</button>
-            <button @click="buttonAenderungenSpeichern(this.aktuellerIndex)" class="btn btn-primary">Änderungen speichern</button>
+            <button @click="buttonAenderungenSpeichern(updatePokemon.aktuellerIndex)" class="btn btn-primary">Änderungen speichern</button>
         </div>
         </div>
 
