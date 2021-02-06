@@ -33,9 +33,7 @@ const PokemonApp = {
         // ##### für Statistik ##############
         anzahlPokemons() {
             return this.pokemonList.length;
-        },
-
-        
+        },        
 
         anzahlMaennlich() {            
             return this.anzahlGender('m');
@@ -173,7 +171,7 @@ const PokemonApp = {
             }
             return anzahl;
         },
-        
+
         getIndexFromId(id){
             let index = -1; // falls id nicht gefunden wird
             for (let i = 0; i < this.pokemonList.length; i++) {
