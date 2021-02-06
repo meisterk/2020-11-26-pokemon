@@ -111,7 +111,7 @@ const PokemonApp = {
         buttonNew(){
             // Standardwerte für neues Pokemon einstellen
             this.newPokemon = {                   
-                   name: 'Pikachu',
+                name: 'Pikachu',
                 typ1: 'Wasser',
                 typ2: 'Elektro',
                 gender: 'w',
@@ -125,17 +125,8 @@ const PokemonApp = {
         },
 
         buttonHinzufuegen() {
-            // neues Pokemon erzeugen
-            const newPokemon = {
-                id: this.nextId,
-                name: this.newPokemon.name,
-                typ1: this.newPokemon.typ1,
-                typ2: this.newPokemon.typ2,
-                gender: this.newPokemon.gender,
-                donnerblitz: this.newPokemon.donnerblitz,
-                voltoball: this.newPokemon.voltoball,
-                surfer: this.newPokemon.surfer                
-            };            
+            // neues Pokemon erzeugen aus Daten des Formulars und id hinzufügen            
+            const newPokemon = Object.assign({id: this.nextId}, this.newPokemon);
 
             // neues Pokemon an Liste anhängen
             this.pokemonList.push(newPokemon);
