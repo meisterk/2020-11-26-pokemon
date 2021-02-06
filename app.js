@@ -169,7 +169,7 @@ const PokemonApp = {
         },
 
         buttonAenderungenSpeichern(id) {
-            // neues Pokemon erzeugen als Kopie
+            // neues Pokemon erzeugen als Kopie von updatePokemon
             const newPokemon = Object.assign({}, this.updatePokemon);                 
            
             // altes Pokemon durch neues ersetzen
