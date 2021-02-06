@@ -26,7 +26,7 @@ const PokemonApp = {
                 statistik: true,
                 liste: true,
                 formNew: false,
-                update: false
+                formUpdate: false
             },
 
             // --- für Update
