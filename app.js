@@ -105,7 +105,7 @@ const PokemonApp = {
 
     methods: {
         // ### GUI: Komponenten anzeigen und verstecken ###
-        formularAnzeigen() {
+        formNewAnzeigen() {
             this.display.statistik = false;
             this.display.liste = false;
             this.display.formNew = true;            
@@ -175,13 +175,13 @@ const PokemonApp = {
             this.updatePokemon.voltoball = aktuellesPokemon.voltoball;
             this.updatePokemon.surfer = aktuellesPokemon.surfer;
 
-            this.updatePokemon.aktuellerIndex = index; // für Speichern-Button
+            //this.updatePokemon.aktuellerIndex = index; // für Speichern-Button
 
             // GUI anzeigen
             this.updateAnzeigen();
         },
 
-        buttonAenderungenSpeichern(index) {
+        buttonAenderungenSpeichern(id) {
             // neues Pokemon erzeugen als Kopie
             const newPokemon = Object.assign({}, this.updatePokemon);
 
@@ -198,9 +198,10 @@ const PokemonApp = {
                 surfer: this.updatePokemon.surfer,
                 attacken: this.updatePokemon.attackenliste
             };
-            */            
-
+            */         
+           
             // altes Pokemon durch neues ersetzen
+            const index = this.getIndexFromId(id);            
             this.pokemonList[index] = newPokemon;
 
             // Statistik und Liste anzeigen

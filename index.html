@@ -37,7 +37,7 @@
                 <button @click="buttonLoeschen(pokemon.id)" class="btn btn-danger">-</button></span>
             </li>
             <!-- Button Neu-->
-            <li class="list-group-item"><button @click="formularAnzeigen" class="btn btn-block btn-success">+</button></li>
+            <li class="list-group-item"><button @click="formNewAnzeigen" class="btn btn-block btn-success">+</button></li>
            </ul>
         </div>
 
@@ -192,7 +192,7 @@
 
         <div class="d-flex justify-content-end m-2">
             <button @click="buttonCancel" class="btn btn-warning mr-2">Abbrechen</button>
-            <button @click="buttonAenderungenSpeichern(updatePokemon.aktuellerIndex)" class="btn btn-primary">Änderungen speichern</button>
+            <button @click="buttonAenderungenSpeichern(updatePokemon.id)" class="btn btn-primary">Änderungen speichern</button>
         </div>
         </div>
 
