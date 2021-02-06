@@ -14,7 +14,7 @@
         <h1 class="bg-light rounded m-2 p-2">Pokemon</h1>
 
         <!-- Statistik -->
-        <div v-if="display.Statistik" class="bg-light rounded m-2 p-2">
+        <div v-if="display.statistik" class="bg-light rounded m-2 p-2">
             <h2>Statistik</h2>
             <p>Anzahl der Pokemons: {{ anzahlPokemons }}</p>
             <p>Anzahl der männlichen Pokemons: {{ anzahlMaennlich }}</p>
@@ -23,7 +23,7 @@
         </div>
 
         <!-- Liste aller Pokemons -->
-        <div v-if="display.Liste" class="bg-light rounded m-2 p-2">
+        <div v-if="display.liste" class="bg-light rounded m-2 p-2">
             <h2>Liste aller Pokemons</h2>
             <ul class="list-group m-2">
             <li class="list-group-item d-flex justify-content-between" v-for="pokemon in pokemonList" :key="pokemon.id">
@@ -42,7 +42,7 @@
         </div>
 
         <!-- Formular neues Pokemon -->
-        <div v-if="display.Formular" class="bg-light rounded m-2 p-2">
+        <div v-if="display.formular" class="bg-light rounded m-2 p-2">
             <h2>Neues Pokemon eintragen</h2>
             <div class="form-group bg-light rounded m-2 p-2">
                 <h3>Name</h3>
@@ -119,7 +119,7 @@
         </div>
 
         <!-- Formular update Pokemon -->
-        <div v-if="display.Update" class="bg-light rounded m-2 p-2">
+        <div v-if="display.update" class="bg-light rounded m-2 p-2">
             <h2>Vorhandenes Pokemon ändern</h2>
             <div class="form-group bg-light rounded m-2 p-2">
                 <h3>Name</h3>
