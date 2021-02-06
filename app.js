@@ -224,7 +224,8 @@ const PokemonApp = {
     },
 
     mounted() {
-        // Persistent gespeicherte Daten laden
+        // Beim Start der App:
+        // persistent gespeicherte Daten laden
         this.laden();
     }
 };
