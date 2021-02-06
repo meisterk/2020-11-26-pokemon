@@ -35,41 +35,25 @@ const PokemonApp = {
             return this.pokemonList.length;
         },
 
-        anzahlMaennlich() {
-            let anzahl = 0;
-            for (let i = 0; i < this.pokemonList.length; i++) {
-                if (this.pokemonList[i].gender === 'm') {
-                    anzahl++;
-                }
-            }
-            return anzahl;
+        
+
+        anzahlMaennlich() {            
+            return this.anzahlGender('m');
         },
 
-        anzahlWeiblich() {
-            let anzahl = 0;
-            for (let i = 0; i < this.pokemonList.length; i++) {
-                if (this.pokemonList[i].gender === 'w') {
-                    anzahl++;
-                }
-            }
-            return anzahl;
+        anzahlWeiblich() {            
+            return this.anzahlGender('w');
         },
 
+        anzahlDivers() {            
+            return this.anzahlGender('d');
+        },
+        
         anteilWeiblichProzent() {
             const prozentWert = 100 * this.anzahlWeiblich / this.anzahlPokemons;
             const prozentWertGerundet = prozentWert.toFixed(0);
             return prozentWertGerundet;
-        },
-
-        anzahlDivers() {
-            let anzahl = 0;
-            for (let i = 0; i < this.pokemonList.length; i++) {
-                if (this.pokemonList[i].gender === 'd') {
-                    anzahl++;
-                }
-            }
-            return anzahl;
-        },
+        },        
 
         // ##### für neues Pokemon ##############
         nextId() {
@@ -180,6 +164,16 @@ const PokemonApp = {
         },
         
         // ### Hilfsmethoden
+        anzahlGender(gender) {
+            let anzahl = 0;
+            for (let i = 0; i < this.pokemonList.length; i++) {
+                if (this.pokemonList[i].gender === gender) {
+                    anzahl++;
+                }
+            }
+            return anzahl;
+        },
+        
         getIndexFromId(id){
             let index = -1; // falls id nicht gefunden wird
             for (let i = 0; i < this.pokemonList.length; i++) {
