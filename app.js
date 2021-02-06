@@ -1,7 +1,7 @@
 const PokemonApp = {
     data() {
         return {
-            // --- Daten des neuen Pokemons --- 
+            // --- Daten des Formulars "Neues Pokemon" --- 
             newPokemon: {                   
                 name: 'Pikachu',
                 typ1: 'Wasser',
@@ -12,7 +12,7 @@ const PokemonApp = {
                 surfer: false
             },
 
-            // Daten des Pokemons, welches upgedated wird
+            // --- Daten des Update-Formulars ---
             updatePokemon: {},
 
             // --- Liste aller Pokemons ---
