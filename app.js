@@ -1,3 +1,8 @@
+// ---------------
+// Vorname:
+// Nachname:
+// Klasse: T3A
+// ---------------
 const PokemonApp = {
     data() {
         return {
