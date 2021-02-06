@@ -30,7 +30,7 @@
                 <span>
                     <strong>{{ pokemon.name }}</strong>:
                     {{ pokemon.typ1 }},
-                    {{ pokemon.typ2 }} ({{ pokemon.gender }}), {{ pokemon.attacken }}
+                    {{ pokemon.typ2 }} ({{ pokemon.gender }}), {{ attackenliste(pokemon) }}
                 </span>
                 <span>
                 <button @click="buttonUpdate(pokemon.id)" class="btn btn-secondary mr-2">update</button>

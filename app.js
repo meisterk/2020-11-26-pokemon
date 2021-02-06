@@ -29,6 +29,7 @@ const PokemonApp = {
     computed: {
         // --- berechnete Datenfelder ---
         // --- werden zwischengespeichert ---
+        // ##### für Statistik ##############
         anzahlPokemons() {
             return this.pokemonList.length;
         },
@@ -69,6 +70,7 @@ const PokemonApp = {
             return anzahl;
         },
 
+        // ##### für neues Pokemon ##############
         nextId() {
             // maximale Id + 1
             let maximaleId = -1;
@@ -78,21 +80,9 @@ const PokemonApp = {
                 }
             }
             return maximaleId + 1;
-        },
-
-        attackenliste() {
-            let text = '';
-            if (this.donnerblitz) {
-                text += 'Donnerblitz ';
-            }
-            if (this.voltoball) {
-                text += 'Voltoball ';
-            }
-            if (this.surfer) {
-                text += 'Surfer ';
-            }
-            return text;
         }
+
+        
     },
 
     methods: {
@@ -145,9 +135,8 @@ const PokemonApp = {
                 gender: this.newPokemon.gender,
                 donnerblitz: this.newPokemon.donnerblitz,
                 voltoball: this.newPokemon.voltoball,
-                surfer: this.newPokemon.surfer,
-                attacken: this.newPokemon.attackenliste // FEHLER!
-            };
+                surfer: this.newPokemon.surfer                
+            };            
 
             // neues Pokemon an Liste anhängen
             this.pokemonList.push(newPokemon);
@@ -234,6 +223,20 @@ const PokemonApp = {
                 }
             }
             return index;
+        },
+
+        attackenliste(pokemon) {
+            let text = '';
+            if (pokemon.donnerblitz) {
+                text += 'Donnerblitz ';
+            }
+            if (pokemon.voltoball) {
+                text += 'Voltoball ';
+            }
+            if (pokemon.surfer) {
+                text += 'Surfer ';
+            }
+            return text;
         },
 
         // ### Persistenz: localStorage ###
