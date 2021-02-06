@@ -81,9 +81,7 @@ const PokemonApp = {
                 }
             }
             return maximaleId + 1;
-        }
-
-        
+        }        
     },
 
     methods: {
@@ -161,40 +159,18 @@ const PokemonApp = {
         buttonUpdate(id){
             // Daten des Pokemon mit id holen
             const index = this.getIndexFromId(id);
-            let aktuellesPokemon = this.pokemonList[index];
+            const aktuellesPokemon = this.pokemonList[index];
 
             // Daten vom Pokemon auf GUI übertragen
-            this.updatePokemon.id = aktuellesPokemon.id;
-            this.updatePokemon.name = aktuellesPokemon.name;
-            this.updatePokemon.typ1 = aktuellesPokemon.typ1;
-            this.updatePokemon.typ2 = aktuellesPokemon.typ2;
-            this.updatePokemon.gender = aktuellesPokemon.gender;
-            this.updatePokemon.donnerblitz = aktuellesPokemon.donnerblitz;
-            this.updatePokemon.voltoball = aktuellesPokemon.voltoball;
-            this.updatePokemon.surfer = aktuellesPokemon.surfer;
-            
+            this.updatePokemon = Object.assign({}, aktuellesPokemon);
+
             // GUI anzeigen
             this.updateAnzeigen();
         },
 
         buttonAenderungenSpeichern(id) {
             // neues Pokemon erzeugen als Kopie
-            const newPokemon = Object.assign({}, this.updatePokemon);
-
-            /*
-            Umständlicher Quellcode zum Erzeugen einer Kopie
-            const newPokemon = {
-                id: this.updatePokemon.id,
-                name: this.updatePokemon.name,
-                typ1: this.updatePokemon.typ1,
-                typ2: this.updatePokemon.typ2,
-                gender: this.updatePokemon.gender,
-                donnerblitz: this.updatePokemon.donnerblitz,
-                voltoball: this.updatePokemon.voltoball,
-                surfer: this.updatePokemon.surfer,
-                attacken: this.updatePokemon.attackenliste
-            };
-            */         
+            const newPokemon = Object.assign({}, this.updatePokemon);                 
            
             // altes Pokemon durch neues ersetzen
             const index = this.getIndexFromId(id);            
