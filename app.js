@@ -109,21 +109,21 @@ const PokemonApp = {
             this.display.statistik = false;
             this.display.liste = false;
             this.display.formNew = true;            
-            this.display.update = false;
+            this.display.formUpdate = false;
         },
 
         statistikUndListeAnzeigen() {
             this.display.statistik = true;
             this.display.liste = true;
             this.display.formNew = false;
-            this.display.update = false;
+            this.display.formUpdate = false;
         },
 
         updateAnzeigen(){
             this.display.statistik = false;
             this.display.liste = false;
             this.display.formNew = false;
-            this.display.update = true;            
+            this.display.formUpdate = true;            
         },
 
         // ### Handler für Buttons ###
