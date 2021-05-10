@@ -1,7 +1,7 @@
 // ---------------
 // Vorname:
 // Nachname:
-// Klasse: T3A
+// Klasse: T4A
 // ---------------
 const PokemonApp = {
     data() {
